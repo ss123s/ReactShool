@@ -67,20 +67,20 @@ class Text extends React.Component{
 class Content extends React.Component{
 	constructor (props) {
 		super(props);
-		this.state = {liked: true};
+		this.state = {liked: true,};
 		this.handleClick = this.handleClick.bind(this);
 	}
-	getInitialState() {
-        return {liked: false};
-    }
-	 handleClick(event) {
-        this.setState({liked: !this.state.liked});
+	 handleClick() {
+        this.setState( prevState => ({
+        	liked : !prevState.liked
+        }));        
    }
 	render () {
-		let text = this.state.liked ? '喜欢' : '不喜欢';
+		let text = this.state.liked ? '喜欢' : '不喜欢'; //改变数据状态
+		let act = this.state.liked ? 'show' : 'hide'; //显示隐藏，容器
 		return (
 			<div>
-				<p >{text}</p>
+				<p  className={act}>{text}</p>
 				<a onClick={this.handleClick}>点击我切换</a>
 			</div>
 		)
