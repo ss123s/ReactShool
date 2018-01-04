@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>react学习实例</title>
+		<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css" />
+	</head>
+	<body>
+		<div id="root" style="height:100px;">
+
+		</div>
+	</body>
+	<script type="text/babel">
+class Header extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			merchant: '商家',
+			address: '地址',
+			user: '个人中心'
+		};
+	}
+	render() {
+		return(
+			<div>
+				<div className="Header-top">
+					<a href="javascript:void(0)" className="left-go"><i className="iconfont icon-fanhui"></i></a>
+					<a href="javascript:void(0)" className="cent-text">首页</a>
+				</div>
+				<div className="header">
+					<a href="javascript:void(0);" className="header-tab-1">{this.state.merchant}</a>
+					<a href="javascript:void(0);" className="header-tab-2">{this.state.address}</a>
+					<a href="javascript:void(0);" className="header-tab-3">{this.state.user}</a>
+				</div>
+			</div>			
+		)
+	}
+}
+
+ReactDOM.render(
+	<Header />,
+	document.getElementById('root'))
+
+</script>
+</html>

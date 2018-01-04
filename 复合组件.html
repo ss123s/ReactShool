@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>复合组件的应用</title>
+	</head>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	<link rel="stylesheet" href="font/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="css/react.css"/>
+	<body>
+		<!--根元素-->
+		<div id="react"></div>
+	</body>
+<script type="text/babel" >
+class TopHeader extends React.Component{
+	constructor (props) {
+		super(props);		
+	}
+	render () {
+		return (
+			<div>
+				<Text/>
+				<Header/>
+			</div>
+		);
+	}
+};
+
+class Header extends React.Component{
+	constructor (props) {
+		super(props);
+		this.state = {
+			merchant: '商家',
+			address: '地址',
+			user: '个人中心'
+		}
+	}
+	render(){
+		return (
+			<div className="header">
+					<a href="javascript:void(0);" className="header-tab-1">{this.state.merchant}</a>
+					<a href="javascript:void(0);" className="header-tab-2">{this.state.address}</a>
+					<a href="javascript:void(0);" className="header-tab-3">{this.state.user}</a>
+			</div>
+		)
+	}
+};
+
+class Text extends React.Component{
+	constructor (props) {
+		super(props);
+	}
+	render(){
+		return (
+			<div className="Header-top">
+				<a href="javascript:void(0)" className="left-go"><i className="iconfont icon-fanhui"></i></a>
+				<a href="javascript:void(0)" className="cent-text">首页</a>
+			</div>
+		)
+	}
+}
+
+
+ReactDOM.render(
+	<TopHeader/>,
+	document.getElementById('react')
+);
+</script>
+</html>
